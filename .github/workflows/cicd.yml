@@ -53,7 +53,7 @@ jobs:
           find "${{ github.event_name == 'push' && '/var/www/html/dev' || '/var/www/html/live' }}" -type f -name "*.php" ! -name "wp-config.php" -delete
           rm -r "${{ github.event_name == 'push' && '/var/www/html/dev' || '/var/www/html/live' }}/wp-admin/" "${{ github.event_name == 'push' && '/var/www/html/dev' || '/var/www/html/live' }}/wp-includes/"
           unzip -o "${{ github.event_name == 'push' && '/var/www/html/dev' || '/var/www/html/live' }}/wordpress.zip" -d "${{ github.event_name == 'push' && '/var/www/html/dev' || '/var/www/html/live' }}/"
-          mv "${{ github.event_name == 'push' && '/var/www/html/dev' || '/var/www/html/live' }}/wordpress/*" "${{ github.event_name == 'push' && '/var/www/html/dev' || '/var/www/html/live' }}/"
+          mv "${{ github.event_name == 'push' && '/var/www/html/dev' || '/var/www/html/live' }}/wordpress"/* "${{ github.event_name == 'push' && '/var/www/html/dev' || '/var/www/html/live' }}/"
           rm -r "${{ github.event_name == 'push' && '/var/www/html/dev' || '/var/www/html/live' }}/wordpress"
     
     - name: Update Plugins and Theme
